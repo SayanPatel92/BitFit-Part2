@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BitFit-Part1</string>
+    <string name="add_hours">Add Hours</string>
+    <string name="your_sleeping_pattern">Your Sleeping Pattern</string>
+    <string name="hours_of_sleep">Hours of Sleep:</string>
+    <string name="_8_hours">8 hours</string>
+    <string name="how_are_you_feeling_today_out_of_10">How are you feeling today (out of 10)?</string>
+    <string name="_10">/10</string>
+    <string name="save">Save</string>
+    <string name="enter_comments">Enter Comments</string>
+    <string name="how_did_you_sleep">How did you sleep?</string>
+    <string name="today_s_date">Today\'s Date</string>
+    <string name="comments">Comments</string>
+    <string name="slept_x_hours">Slept x hours</string>
+    <string name="feeling_a_10">Feeling a/10</string>
+</resources>
