@@ -31,7 +31,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![BitFitPart1](https://user-images.githubusercontent.com/123009393/221671646-c076fa38-fabd-4d26-abb0-817d463f920d.gif)
+![BitFitPart1](https://user-images.githubusercontent.com/123009393/222256086-62f22b8e-5007-483d-b675-3fd7edb8dc3e.gif)
 
 
 <!-- Replace this with whatever GIF tool you used! -->
