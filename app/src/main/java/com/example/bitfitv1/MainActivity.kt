@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.bitfitv1
 
 import android.content.Intent
@@ -5,45 +7,43 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
+
 import kotlinx.coroutines.launch
 
 class MainHabitActivity : AppCompatActivity() {
-    private val habits = mutableListOf<Habit>()
-    private lateinit var rvFeed: RecyclerView
-    private lateinit var btnAdd: Button
-    private lateinit var tvAverage: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        rvFeed = findViewById(R.id.rvHabits)
-        val habitAdapter = HabitAdapter(this, habits)
-        rvFeed.adapter = habitAdapter
-        rvFeed.layoutManager = LinearLayoutManager(this)
-        lifecycleScope.launch {
-            (application as BitFitApplication).db.habitDao().getAll().collect() {
-                    databaseList ->
-                databaseList.map { entity ->
-                    Habit(
-                        entity.date,
-                        entity.hour,
-                        entity.comment,
-                        entity.rate
-                    )
-                }.also { mappedList ->
-                    habits.clear()
-                    habits.addAll(mappedList)
-                    habitAdapter.notifyDataSetChanged()
-
-                }
+        replaceFragment(FeedFragment())
+        handleNewEntry()
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationMain)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            lateinit var fragment: Fragment
+            when (item.itemId) {
+                R.id.feedTab -> fragment = FeedFragment()
+                R.id.overviewTab -> fragment = OverviewFragment()
             }
+            replaceFragment(fragment)
+            handleNewEntry()
+            true
         }
 
+    }
+
+    private fun replaceFragment(newFragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.framelayout, newFragment)
+        fragmentTransaction.commit()
+
+    }
+
+    private fun handleNewEntry() {
         val habit = intent.getSerializableExtra("ENTRY_EXTRA")
         if (habit != null){
             Log.d("AddActivity", "got an extra")
@@ -58,15 +58,18 @@ class MainHabitActivity : AppCompatActivity() {
                     )
                 )
             }
+            intent.removeExtra("ENTRY_EXTRA")
         } else {
             Log.d("AddActivity", "no extra")
         }
-        btnAdd = findViewById(R.id.btnNewEntry)
-        btnAdd.setOnClickListener {
-            Log.d("AddActivity", "add item Clicked")
-            val intent = Intent(this, AddHabitActivity::class.java)
-            this.startActivity(intent)
+
+        val addButtonView = findViewById<Button>(R.id.btnNewEntry)
+        addButtonView.setOnClickListener {
+            val intentX = Intent(this, AddHabitActivity::class.java)
+            this.startActivity(intentX)
         }
 
     }
+
+
 }

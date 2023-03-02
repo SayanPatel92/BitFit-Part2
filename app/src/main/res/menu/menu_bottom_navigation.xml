@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_feedTab"
+        android:icon="@drawable/baseline_feed_24"
+        android:title="@string/feed" />
+
+    <item
+        android:id="@+id/nav_overviewTab"
+        android:icon="@drawable/baseline_overview_24"
+        android:title="@string/overview" />
+</menu>

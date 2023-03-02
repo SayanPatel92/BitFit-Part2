@@ -6,43 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".MainHabitActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHabits"
+    <FrameLayout
+        android:id="@+id/framelayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnNewEntry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAverage" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnNewEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_hours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="622dp"
+        app:layout_constraintTop_toBottomOf="@+id/framelayout"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationMain"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvHabits"
-        app:layout_constraintVertical_bias="0.863" />
-
-    <TextView
-        android:id="@+id/tvAverage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/rounded_corner"
-        android:text="@string/your_sleeping_pattern"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/rvHabits"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNewEntry"
+        app:layout_constraintVertical_bias="0.868"
+        app:menu="@menu/bottom_menu_layout"
+        tools:ignore="VisualLintBottomNav" />
 </androidx.constraintlayout.widget.ConstraintLayout>

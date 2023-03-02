@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BitFit-Part1</string>
+    <string name="app_name">BitFit-Part2</string>
     <string name="add_hours">Add Hours</string>
     <string name="your_sleeping_pattern">Your Sleeping Pattern</string>
     <string name="hours_of_sleep">Hours of Sleep:</string>
@@ -13,4 +13,14 @@
     <string name="comments">Comments</string>
     <string name="slept_x_hours">Slept x hours</string>
     <string name="feeling_a_10">Feeling a/10</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="average_hours_slept">Average Hours Slept:</string>
+    <string name="minimum_hours">Minimum Hours :</string>
+    <string name="maximum_hours">Maximum Hours :</string>
+    <string name="clear">Clear</string>
+    <string name="minimum_hours_sleep">Minimum Hours Sleep:</string>
+    <string name="maximum_hours_sleep">Maximum Hours Sleep :</string>
+    <string name="feed">Feed</string>
+    <string name="overview">Overview</string>
 </resources>
